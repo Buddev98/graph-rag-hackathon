@@ -11,8 +11,7 @@ def download_and_prepare_dataset(output_dir="data", num_articles=2500):
     os.makedirs(output_dir, exist_ok=True)
     print("Loading Wikipedia dataset snippet...")
     
-    # trust_remote_code is needed for some HF datasets
-    dataset = load_dataset("wikipedia", "20220301.en", split=f"train[:{num_articles}]", trust_remote_code=True)
+    dataset = load_dataset("ag_news", split=f"train[:{num_articles}]")
     
     # We use gpt2 tokenizer just for a rough token count estimate
     tokenizer = AutoTokenizer.from_pretrained("gpt2")
@@ -26,9 +25,9 @@ def download_and_prepare_dataset(output_dir="data", num_articles=2500):
         tokens = len(tokenizer.encode(text, truncation=False))
         total_tokens += tokens
         documents.append({
-            "id": row['id'],
-            "url": row['url'],
-            "title": row['title'],
+            "id": f"ag_news_{i}",
+            "url": "N/A",
+            "title": f"AG News Label {row['label']}",
             "text": text,
             "tokens": tokens
         })

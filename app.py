@@ -7,7 +7,7 @@ from pipelines.llm_only import run_llm_only
 from pipelines.basic_rag import run_basic_rag
 from pipelines.graph_rag import run_graph_rag
 
-load_dotenv()
+load_dotenv(override=True)
 
 st.set_page_config(layout="wide", page_title="TigerGraph GraphRAG Hackathon")
 
