@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+streamlit
+chromadb
+google-genai
+langchain
+huggingface_hub
+evaluate
+bert_score
+torch
+transformers
+sentence-transformers
+python-dotenv
+pandas
+pydantic
+datasets
+tiktoken
